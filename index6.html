@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #BDBDBD;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .input {
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            width: 220px;
+            margin-bottom: 20px;
+            outline: none;
+            border: none;
+        }
+
+        .guess-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .guess-btn:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 22px;
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Guess the Secret Number Game</h2>
+
+<p>Guess a number between 1 and 10:</p>
+
+<input type="number" id="userGuess" class="input" placeholder="Enter your guess" min="1" max="10"><br><br>
+<button class="guess-btn" onclick="checkGuess()">Guess</button>
+
+<p id="feedback" class="message"></p>
+
+<script>
+    var secretNumber = 7;
+
+    function checkGuess() {
+        var userGuess = parseInt(document.getElementById('userGuess').value);
+        var feedback = '';
+
+        if (userGuess === secretNumber) {
+            feedback = "Bingo! Correct answer";
+        } else if (userGuess + 1 === secretNumber || userGuess - 1 === secretNumber) {
+            feedback = "Close enough to the correct answer";
+        } else {
+            feedback = "Try again!";
+        }
+
+        document.getElementById('feedback').innerText = feedback;
+    }
+</script>
+
+</body>
+</html>

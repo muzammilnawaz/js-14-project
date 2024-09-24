@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Sheet</title>
+    <style>
+        body {
+            background-color: rgb(189, 189, 189);
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #010101;
+            font-size: 24px;
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            margin-bottom: 20px;
+            outline: 0;
+        }
+
+        .result {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 20px;
+            color: #4CAF50;
+            margin-top: 30px;
+            text-shadow: 2px 2px gold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Marks Sheet</h2>
+
+<form id="marksForm">
+    <label for="subject1">Marks in Subject 1:</label>
+    <input type="number" id="subject1" class="input" required><br><br>
+
+    <label for="subject2">Marks in Subject 2:</label>
+    <input type="number" id="subject2" class="input" required><br><br>
+
+    <label for="subject3">Marks in Subject 3:</label>
+    <input type="number" id="subject3" class="input" required><br><br>
+
+    <label for="totalMarks">Total Marks:</label>
+    <input type="number" id="totalMarks" class="input" required><br><br>
+
+    <button type="button" class="result" onclick="calculateResult()">Calculate Result</button>
+</form>
+
+<h3>Result</h3>
+<p id="result" class="message"></p>
+
+<script>
+    function calculateResult() {
+        var subject1 = parseFloat(document.getElementById('subject1').value);
+        var subject2 = parseFloat(document.getElementById('subject2').value);
+        var subject3 = parseFloat(document.getElementById('subject3').value);
+        var totalMarks = parseFloat(document.getElementById('totalMarks').value);
+
+        var marksObtained = subject1 + subject2 + subject3;
+        var percentage = (marksObtained / totalMarks) * 100;
+
+        var grade = '';
+        var remarks = '';
+        
+        if (percentage >= 80) {
+            grade = 'A-one';
+            remarks = 'Excellent';
+        } else if (percentage >= 70) {
+            grade = 'A';
+            remarks = 'Good';
+        } else if (percentage >= 60) {
+            grade = 'B';
+            remarks = 'You need to improve';
+        } else {
+            grade = 'Fail';
+            remarks = 'Sorry';
+        }
+
+        document.getElementById('result').innerHTML = `
+            Total marks: ${totalMarks}<br>
+            Marks obtained: ${marksObtained}<br>
+            Percentage: ${percentage.toFixed(2)}%<br>
+            Grade: ${grade}<br>
+            Remarks: ${remarks}
+        `;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #BDBDBD;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .input {
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            width: 220px;
+            margin-bottom: 20px;
+            outline: none;
+            border: none;
+        }
+
+        .check-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .check-btn:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 22px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Check Divisibility by 3</h2>
+
+<p>Enter a number to check if it's divisible by 3:</p>
+
+<input type="number" id="userNumber" class="input" placeholder="Enter a number"><br><br>
+<button class="check-btn" onclick="checkDivisibility()">Check</button>
+
+<p id="feedback" class="message"></p>
+
+<script>
+    function checkDivisibility() {
+        var number = (document.getElementById("userNumber").value);
+        var feedback = "";
+
+        if (number % 3 === 0) {
+            feedback = "The number " + number + " is divisible by 3.";
+        } else {
+            feedback = "The number " + number + " is not divisible by 3.";
+        }
+
+        document.getElementById('feedback').innerText = feedback;
+    }
+</script>
+
+</body>
+</html>

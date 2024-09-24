@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            background-color: rgb(189, 189, 189);
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #010101;
+            font-size: 24px;
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            margin-bottom: 20px;
+            outline: 0;
+        }
+
+        .result {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 28px;
+            color: #4CAF50;
+            margin-top: 30px;
+            text-shadow: 2px 2px gold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Enter the color of the traffic signal:</h2>
+
+<input type="text" class="input" placeholder="Enter Red, Yellow or Green">
+
+<button class="result" onclick="displayMessage()">Submit</button>
+
+<p class="message"></p>
+
+<script>
+    function displayMessage() {
+        let signalColor = document.querySelector(".input").value.toLowerCase();
+        let message = document.querySelector(".message");
+
+        if (signalColor === "red") {
+            message.innerHTML = "Must Stop";
+        } else if (signalColor === "yellow") {
+            message.innerHTML = "Ready to move";
+        } else if (signalColor === "green") {
+            message.innerHTML = "Move now";
+        } else {
+            message.innerHTML = "Please enter a valid traffic signal color (Red, Yellow, Green).";
+        }
+    }
+</script>
+
+</body>
+</html>

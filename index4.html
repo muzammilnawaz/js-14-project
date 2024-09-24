@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(189, 189, 189);
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #010101;
+            font-size: 24px;
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            margin-bottom: 20px;
+            outline: 0;
+        }
+
+        .result {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 20px;
+            color: #4CAF50;
+            margin-top: 30px;
+            text-shadow: 2px 2px gold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Enter the remaining fuel in your car:</h2>
+
+<input type="number" class="input" placeholder="Liters" step="0.01">
+
+<button class="result" onclick="checkFuel()">Submit</button>
+<p class="message"></p>
+
+<script>
+    function checkFuel() {
+
+        let fuelAmount = parseFloat(document.querySelector(".input").value);
+        let message = document.querySelector(".message");
+
+
+        if (fuelAmount <= 0.25) {
+            message.innerHTML = "Please refill the fuel in your car.";
+        } else {
+            message.innerHTML = "You have enough fuel.";
+        }
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #bdbdbd;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .input,
+        .operation {
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            width: 220px;
+            margin-bottom: 20px;
+            outline: none;
+            border: none;
+        }
+
+        .calculate-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 22px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <p>Enter two numbers and choose an operation to perform:</p>
+
+    <input type="number" id="firstNumber" class="input" placeholder="First number"><br>
+
+    <input type="number" id="secondNumber" class="input" placeholder="Second number"><br>
+
+    <select id="operation" class="operation">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (*)</option>
+        <option value="/">Division (/)</option>
+    </select><br><br>
+
+    <button class="calculate-btn" onclick="calculate()">Calculate</button>
+
+    <p id="result" class="message"></p>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('firstNumber').value);
+            var num2 = parseFloat(document.getElementById('secondNumber').value);
+            var operation = document.getElementById('operation').value;
+            var result = '';
+
+            if (operation === '+') {
+                result = num1 + num2;
+            } else if (operation === '-') {
+                result = num1 - num2;
+            } else if (operation === '*') {
+                result = num1 * num2;
+            } else if (operation === '/') {
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                } else {
+                    result = "Division by zero is not allowed!";
+                }
+            } else {
+                result = "Invalid operation selected.";
+            }
+
+            document.getElementById('result').innerText = "Result: " + result;
+        }
+
+    </script>
+
+</body>
+
+</html>
